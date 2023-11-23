@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'App/onboarding.dart';
-import 'App/login.dart';
-import 'App/forgot_pass.dart';
+import 'package:untitled2/Splash/splash_basehall.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: onboarding(),
+      home: splash_basehall(),
     );
   }
 }
