@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Splash/splash_basehall.dart';
+import 'package:untitled2/MyApp.dart';
+import 'package:untitled2/pages/Splash/splash_basehall.dart';
 
 void main() {
   runApp(const MyApp());

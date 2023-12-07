@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Sign_In-Sign_Up/sigin_up.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_up.dart';
 
 class sigin_up_mobile extends StatefulWidget {
   const sigin_up_mobile({super.key});

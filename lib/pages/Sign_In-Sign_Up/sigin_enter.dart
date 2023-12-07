@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/App/Home/Take_Away.dart';
-import 'package:untitled2/Sign_In-Sign_Up/sigin_choose.dart';
-import 'package:untitled2/Sign_In-Sign_Up/sigin_up.dart';
+import 'package:untitled2/components/Footer/button.dart';
+import 'package:untitled2/pages/App/Home/Take_Away.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_choose.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_up.dart';
 
 class sigin_enter extends StatefulWidget {
   const sigin_enter({super.key});
@@ -362,7 +363,7 @@ class _sigin_enterState extends State<sigin_enter> {
         ),
         onTap: () {
           Navigator.push(context, 
-            MaterialPageRoute(builder: (context) => Take_Away())
+            MaterialPageRoute(builder: (context) => button())
           );
         },
       ),

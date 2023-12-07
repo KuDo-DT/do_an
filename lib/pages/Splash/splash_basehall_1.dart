@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Splash/splash_basehall_2.dart';
+import 'package:untitled2/pages/Splash/splash_basehall_2.dart';
 class splash_bashall_1 extends StatefulWidget {
   const splash_bashall_1({super.key});
 

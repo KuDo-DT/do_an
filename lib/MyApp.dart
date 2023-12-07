@@ -1,89 +1,107 @@
 import 'package:flutter/material.dart';
+import 'package:untitled2/components/Footer/button.dart';
+import 'package:untitled2/components/Header/app_bar.dart';
+import 'package:untitled2/pages/App/Home/Book.dart';
+import 'package:untitled2/pages/App/Home/Browse.dart';
+import 'package:untitled2/pages/App/Home/Delivery.dart';
+import 'package:untitled2/pages/App/Home/Take_Away.dart';
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+/// Flutter code sample for [AppBar].
 
-class _MyAppState extends State<MyApp> {
+List<String> titles = <String>[
+  'Take Away',
+  'Delivery',
+  'Book',
+  'Browse',
+];
+
+
+
+class AppBarApp extends StatelessWidget {
+  const AppBarApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          const SliverAppBar(
-            pinned: true,
-            expandedHeight: 250.0,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text('CustomScrollView'),
-              centerTitle: true,
+    return MaterialApp(
+      theme: ThemeData(
+
+          cardColor:Color(0xFF4C95FF),
+
+      ),
+
+      home: const AppBarExample(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class AppBarExample extends StatelessWidget {
+  const AppBarExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final Color oddItemColor = colorScheme.primary.withOpacity(0.15);
+    final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
+    const int tabsCount = 4;
+
+    return DefaultTabController(
+      initialIndex: 0,
+      length: tabsCount,
+      child: Scaffold(
+        appBar: AppBar(
+          title:const app_bar(),
+          notificationPredicate: (ScrollNotification notification) {
+            return notification.depth == 1;
+          },
+
+          scrolledUnderElevation: 4.0,
+          shadowColor: Theme.of(context).shadowColor,
+          bottom: TabBar(
+            indicator:  BoxDecoration(
+              color: Color(0xFF4C95FF),
+              borderRadius: BorderRadius.circular(40),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: Container(
-              color: Colors.tealAccent,
-              alignment: Alignment.center,
-              height: 200,
-              child: const Text('This is Container'),
-            ),
-          ),
-          SliverGrid(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200.0,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 10.0,
-              childAspectRatio: 4.0,
-            ),
-            delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.center,
-                  color: Colors.teal[100 * (index % 9)],
-                  child: Text('Grid Item $index'),
-                );
-              },
-              childCount: 20,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Container(
-              color: Colors.amberAccent,
-              alignment: Alignment.center,
-              height: 200,
-              child: const Text('This is Container'),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 100.0,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    width: 100.0,
-                    child: Card(
-                      color: Colors.cyan[100 * (index % 9)],
-                      child: Text('Item $index'),
-                    ),
-                  );
-                },
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.black,
+            indicatorSize: TabBarIndicatorSize.tab,
+            tabs: <Widget>[
+              Tab(
+                // icon: const Icon(Icons.cloud_outlined),
+
+                text: titles[0],
               ),
+              Tab(
+                // icon: const Icon(Icons.beach_access_sharp),
+                text: titles[1],
+              ),
+              Tab(
+                // icon: const Icon(Icons.brightness_5_sharp),
+                text: titles[2],
+              ),
+              Tab(
+                // icon: const Icon(Icons.brightness_5_sharp),
+                text: titles[3],
+              ),
+            ],
+          ),
+        ),
+        body: Center(
+          child: Container(
+            child: TabBarView(
+              children: <Widget>[
+
+                Take_Away(),
+                Delivery(),
+                Book(),
+                Browse(),
+              ],
+
             ),
           ),
-          SliverFixedExtentList(
-            itemExtent: 50.0,
-            delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.center,
-                  color: Colors.lightBlue[100 * (index % 9)],
-                  child: Text('List Item $index'),
-                );
-              },
-            ),
-          ),
-        ],
+
+        ),
+
       ),
     );
   }

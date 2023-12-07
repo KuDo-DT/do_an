@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Sign_In-Sign_Up/sigin_choose.dart';
-import 'package:untitled2/Splash/splash_basehall_1.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_choose.dart';
+import 'package:untitled2/pages/Splash/splash_basehall_1.dart';
 
 class splash_basehall_2 extends StatefulWidget {
   const splash_basehall_2({super.key});

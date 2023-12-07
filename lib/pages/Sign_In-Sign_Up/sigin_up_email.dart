@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Sign_In-Sign_Up/forgot_pass.dart';
-
-class forgot_pass_email extends StatefulWidget {
-  const forgot_pass_email({super.key});
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_choose.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_enter_email.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_up.dart';
+class sigin_up_email extends StatefulWidget {
+  const sigin_up_email({super.key});
 
   @override
-  State<forgot_pass_email> createState() => _forgot_pass_emailState();
+  State<sigin_up_email> createState() => _sigin_up_emailState();
 }
 
-class _forgot_pass_emailState extends State<forgot_pass_email> {
+class _sigin_up_emailState extends State<sigin_up_email> {
+  bool _isVisible = true;
+  bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,14 +51,14 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => forgot_pass()),
+                    MaterialPageRoute(builder: (context) => sigin_up()),
                   );
                 },
               ),
               Container(
-                margin: EdgeInsets.only(top: 65, left: 80),
+                margin: EdgeInsets.only(top: 65, left: 125),
                 child: const Text(
-                  'Forgot Password',
+                  'Sign Up',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -84,8 +87,7 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
                           top: BorderSide(width: 1, color: Color(0xFF4C95FF)),
                           left: BorderSide(width: 1, color: Color(0xFF4C95FF)),
                           right: BorderSide(width: 1, color: Color(0xFF4C95FF)),
-                          bottom:
-                              BorderSide(width: 1, color: Color(0xFF4C95FF)),
+                          bottom: BorderSide(width: 1, color: Color(0xFF4C95FF)),
                         )),
                   ),
                   GestureDetector(
@@ -103,7 +105,7 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
                         Container(
                           margin: EdgeInsets.only(top: 43, left: 12),
                           child: const Text(
-                            'Email Retrieve',
+                            'Email Sign Up',
                             style: TextStyle(
                               color: Color(0xFF4C95FF),
                               fontSize: 14,
@@ -148,13 +150,43 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => forgot_pass()),
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => sigin_up()),
                   );
                 },
               )
             ])
+          ],
+        ),
+        Column(
+          children: [
+            Container(
+              width: 370,
+              height: 44,
+              margin: EdgeInsets.only(top: 16, left: 16, right: 16),
+              child: TextField(
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(
+                        color: Color(0xFFEBEFF2),
+                        width: 2,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                        BorderSide(color: Color(0xFF4C95FF), width: 2)),
+                    labelText: 'Enter your name',
+                    labelStyle: TextStyle(
+                      color: Color(0xFF999999),
+                      fontSize: 14,
+                      fontFamily: 'SF Pro Display',
+                      fontWeight: FontWeight.w400,
+                      height: 0.08,
+                    )),
+              ),
+            ),
           ],
         ),
         Column(
@@ -190,7 +222,7 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide:
-                            BorderSide(color: Color(0xFF4C95FF), width: 2)),
+                        BorderSide(color: Color(0xFF4C95FF), width: 2)),
                     prefixStyle: const TextStyle(
                       color: Color(0xFF64748B),
                       fontSize: 16,
@@ -208,19 +240,136 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
             ),
           ],
         ),
-        Container(
-          margin: EdgeInsets.only(top: 10, left: 16, right: 16),
-          width: 349,
-          height: 36,
-          child: const Text(
-            'we will send you an email with instructions to recover your password.',
-            style: TextStyle(
-              color: Color(0xFF999999),
-              fontSize: 14,
-              fontFamily: 'SF Pro Display',
-              fontWeight: FontWeight.w400,
+        Column(
+          children: [
+            Container(
+              width: 370,
+              height: 44,
+              margin: EdgeInsets.only(top: 16, left: 16, right: 16),
+              child: TextField(
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(
+                        color: Color(0xFFEBEFF2),
+                        width: 2,
+                      ),
+                    ),
+                    suffix: GestureDetector(
+                      child: Icon(
+                        _isVisible
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility,
+                        color: Color(0xFF4C95FF),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          _isVisible = !_isVisible;
+                        });
+                      },
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide:
+                        BorderSide(color: Color(0xFF4C95FF), width: 2)),
+                    prefixStyle: const TextStyle(
+                      color: Color(0xFF64748B),
+                      fontSize: 16,
+                    ),
+                    labelText: 'Password',
+                    labelStyle: TextStyle(
+                      color: Color(0xFF999999),
+                      fontSize: 14,
+                      fontFamily: 'SF Pro Display',
+                      fontWeight: FontWeight.w400,
+                      height: 0.08,
+                    )),
+                obscureText: _isVisible,
+              ),
             ),
-          ),
+          ],
+        ),
+        Row(
+          children: [
+            Column(
+              children: [
+                Stack(children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 16, left: 16),
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                        border: Border.all(width: 1, color: Color(0xFF4C95FF))),
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          _isChecked = !_isChecked;
+                        });
+                      },
+                      child: _isChecked
+                          ? Icon(
+                        Icons.done,
+                        color: Colors.blue,
+                        size: 15,
+                      )
+                          : Container(),
+                    ),
+                  ),
+                ]),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 16, left: 8),
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'I agree ',
+                      style: TextStyle(
+                        color: Color(0xFF403D3A),
+                        fontSize: 14,
+                        fontFamily: 'PingFang TC',
+                        fontWeight: FontWeight.w400,
+                        height: 0.08,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Terms',
+                      style: TextStyle(
+                        color: Color(0xFF4C95FF),
+                        fontSize: 14,
+                        fontFamily: 'PingFang TC',
+                        fontWeight: FontWeight.w500,
+                        height: 0.08,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' & ',
+                      style: TextStyle(
+                        color: Color(0xFF403D3A),
+                        fontSize: 14,
+                        fontFamily: 'PingFang TC',
+                        fontWeight: FontWeight.w400,
+                        height: 0.08,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Conditions',
+                      style: TextStyle(
+                        color: Color(0xFF4C95FF),
+                        fontSize: 14,
+                        fontFamily: 'PingFang TC',
+                        fontWeight: FontWeight.w600,
+                        height: 0.08,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
         GestureDetector(
           child: Column(
@@ -238,10 +387,10 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
                 Center(
                   child: Container(
                     margin: EdgeInsets.only(
-                      top: 43,
+                      top: 40,
                     ),
                     child: const Text(
-                      'Send',
+                      'Sign Up',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
@@ -257,13 +406,13 @@ class _forgot_pass_emailState extends State<forgot_pass_email> {
               ]),
             ],
           ),
-          // onTap: () {
-          //   Navigator.push(context,
-          //       MaterialPageRoute(builder: (context) => sigin_enter_email())
-          //   );
-          // },
+          onTap: () {
+            Navigator.push(context, 
+              MaterialPageRoute(builder: (context) => sigin_enter_email())
+            );
+          },
         ),
-      ]),
+      ])
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Sign_In-Sign_Up/sigin_enter.dart';
-import 'package:untitled2/Sign_In-Sign_Up/sigin_enter_email.dart';
-import 'package:untitled2/Splash/splash_basehall_2.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_enter.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_enter_email.dart';
+import 'package:untitled2/pages/Splash/splash_basehall_2.dart';
 
 class sigin_choose extends StatefulWidget {
   const sigin_choose({super.key});

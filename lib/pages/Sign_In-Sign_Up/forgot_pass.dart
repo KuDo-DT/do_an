@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Sign_In-Sign_Up/forgot_pass_email.dart';
-import 'package:untitled2/Sign_In-Sign_Up/forgot_pass_mobile.dart';
-import 'package:untitled2/Sign_In-Sign_Up/sigin_enter_email.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/forgot_pass_email.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/forgot_pass_mobile.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/sigin_enter_email.dart';
 class forgot_pass extends StatefulWidget {
   const forgot_pass({super.key});
 

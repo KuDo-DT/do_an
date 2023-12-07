@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Sign_In-Sign_Up/forgot_pass.dart';
+import 'package:untitled2/pages/Sign_In-Sign_Up/forgot_pass.dart';
 class forgot_pass_mobile extends StatefulWidget {
   const forgot_pass_mobile({super.key});
 
