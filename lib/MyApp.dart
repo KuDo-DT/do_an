@@ -40,9 +40,9 @@ class AppBarExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color oddItemColor = colorScheme.primary.withOpacity(0.15);
-    final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
+    // final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    // final Color oddItemColor = colorScheme.primary.withOpacity(0.15);
+    // final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
     const int tabsCount = 4;
 
     return DefaultTabController(
@@ -56,13 +56,14 @@ class AppBarExample extends StatelessWidget {
           },
 
           scrolledUnderElevation: 4.0,
-          shadowColor: Theme.of(context).shadowColor,
+          // shadowColor: Theme.of(context).primaryColor,
           bottom: TabBar(
-            indicator:  BoxDecoration(
-              color: Color(0xFF4C95FF),
+
+            indicator: BoxDecoration(
+              color: Colors.white,
               borderRadius: BorderRadius.circular(40),
             ),
-            labelColor: Colors.white,
+            labelColor: Color(0xFF4C95FF),
             unselectedLabelColor: Colors.black,
             indicatorSize: TabBarIndicatorSize.tab,
             tabs: <Widget>[

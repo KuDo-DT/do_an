@@ -84,6 +84,10 @@ flutter:
      - images/Wechat.png
      - images/icon_map.png
      - images/drag.png
+     - images/super.png
+     - images/payment.png
+     - images/deit.png
+     - images/icon_bookings.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

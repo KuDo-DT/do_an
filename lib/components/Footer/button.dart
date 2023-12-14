@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitled2/MyApp.dart';
 import 'package:untitled2/pages/App/Home/Take_Away.dart';
+import 'package:untitled2/pages/App/Order/order.dart';
+import 'package:untitled2/pages/App/Person/person.dart';
 import 'package:untitled2/pages/themes/app_color.dart';
 class button extends StatefulWidget {
   const button({super.key});
@@ -14,7 +16,9 @@ class _buttonState extends State<button> {
   int _currentIndex = 0;
   final tabs = [
     // Take_Away()
-    AppBarApp()
+    AppBarApp(),
+    order(),
+    person()
   ];
   @override
   void didChangeDependencies() {
@@ -64,7 +68,7 @@ class _buttonState extends State<button> {
               Icons.assignment,
               color: Color(0xFF4C95FF),
             ),
-            label: 'Chat',
+            label: 'Order',
           ),
           BottomNavigationBarItem(
             icon: Icon(
